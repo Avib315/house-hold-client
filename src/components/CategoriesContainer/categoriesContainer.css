@@ -1,0 +1,14 @@
+.CategoriesContainer{
+    min-width: 300px;
+    min-height: 300px;
+    display: flex;
+    gap: 5%;
+    flex-wrap: wrap;
+}
+.categoryBtn{
+    width: 30%;
+    height: 30%;
+}
+.selected-btn{
+    outline: 2px solid;
+}
