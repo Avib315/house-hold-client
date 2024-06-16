@@ -1,6 +1,18 @@
+/* .App > div {
+  background: #F3977A;
+  background: -moz-linear-gradient(left, #F3977A 0%, #EF4876 100%);
+  background: -webkit-linear-gradient(left, #F3977A 0%, #EF4876 100%);
+  background: linear-gradient(to right, #F3977A 0%, #EF4876 100%);
+} */
 
 .img {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+.primeBg{
+  background: #F3977A;
+  background: -moz-linear-gradient(left, #F3977A 0%, #EF4876 100%);
+  background: -webkit-linear-gradient(left, #F3977A 0%, #EF4876 100%);
+  background: linear-gradient(to right, #F3977A 0%, #EF4876 100%);
 }

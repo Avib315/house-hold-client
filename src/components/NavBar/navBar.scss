@@ -1,0 +1,35 @@
+.NavBar{
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 10;
+    position: fixed;
+    bottom: 1vh;
+    align-items: center;
+    max-width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    div{
+        opacity: .9;
+        z-index: -1;
+        box-shadow: 0 0 4px 0 #111111;  
+        border-radius: 30px;
+        background-color: #363636;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: absolute;
+    }
+    a{
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+    }
+    .activeLink{
+        color: red;
+    }
+}
