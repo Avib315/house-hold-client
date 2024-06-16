@@ -17,7 +17,8 @@ export async function axiosReq({ method = "POST", body = {}, url = "" }) {
             method,
             data: body,
             url,
-            baseURL: "http://localhost:3001/api",
+            baseURL: "https://household-server-5ccw.onrender.com/api",
+            // baseURL: "http://localhost:3001/api/",
             withCredentials: true
         })
         return data.data
@@ -25,5 +26,6 @@ export async function axiosReq({ method = "POST", body = {}, url = "" }) {
     catch (err) {
          console.error("______AXIOS REQUEST ERROR functions/webApi.js ______")
         console.error(err)
+        return null;
     }
 }
