@@ -21,6 +21,7 @@ export const CreateNewListPage = () => {
     };
 
     useEffect(() => {
+    
         getItems();
     }, [categorySelected, userInfo.itemsSelected]);
 

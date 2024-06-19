@@ -16,7 +16,7 @@
     padding: 2rem 0;
     flex-wrap: wrap;
 
-    a.navBack {
+    a.navBack , button {
         height: 34px;
         width: 100px;
         border-radius: 20px;
@@ -29,20 +29,30 @@
         justify-items: center;
         align-items: center;
         font-size: var(--s-f);
+    }
+    a.navBack{
         position: absolute;
         top: 5px;
         right: 5px;
     }
-
+    
     .container {
-        padding: 6px 34px;
+        padding: 6px 14%;
         width: 100%;
-        min-width: 400px;
+        min-width: 300px;
         max-width: 700px;
-        display: flex;
-        flex-wrap: wrap;
         max-height: 88vh;
-        overflow-y: auto;
-        gap: 4%;
+        ul{
+            display: flex;
+            gap: 4%;
+            overflow-y: auto;
+            flex-wrap: wrap;
+            width: 100%;
+            list-style-type: none;
+            li{
+                padding: 5px;
+                flex-grow: 3;
+            }
+        }
     }
 }

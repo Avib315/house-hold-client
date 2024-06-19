@@ -1,8 +1,8 @@
 import axios from "axios"
 
+axios.defaults.withCredentials = true;
 export async function isAuthenticated() {
     try {
-        console.log('Checking token...');
         const response = await axiosReq({ method: 'GET', url: "user/isAuthenticated", })
         return response;
     } catch (error) {

@@ -9,6 +9,7 @@ export const AddNewItemPage = ({ }) => {
     displayName: "",
     categoryId: "",
   });
+  
   const saveNewItemData = async () => {
     const res = await axiosReq({ method: "POST", url: "items/add-item", body: { item: data } });
     if (res) {

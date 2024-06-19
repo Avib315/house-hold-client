@@ -2,12 +2,13 @@ import { NavLink } from 'react-router-dom';
 import './userPage.scss' 
 import { useEffect, useState } from 'react';
 import {axiosReq} from '../../functions/webApi.js';
+import LoadingPage from '../LoadingPage/LoadingPage.jsx';
 export default function UserPage(){
   const [userInfo, setUserInfo] = useState({}) 
+  const [loading , setLoading] = useState(true)
   async function getUserData(){
-    console.log("reerer");
     const res = await axiosReq({ method: 'GET', url: 'user/get-user-data', withCredentials: true });
-    console.log(res);
+    setLoading(false)
     if(res){
       setUserInfo(res);
     }
@@ -15,7 +16,8 @@ export default function UserPage(){
   useEffect(()=>{
     getUserData()
   },[])
-    return (
+    return (<>
+{!loading ?
 <div className='UserPage'>
   <div className='main'>
     <div className='header'>
@@ -32,5 +34,7 @@ export default function UserPage(){
 <NavLink to="new-items"> הוסף מוצרים</NavLink>
   </div>
 </div>
+: <LoadingPage/>}
+    </>
   )
 }
