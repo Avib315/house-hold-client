@@ -1,4 +1,4 @@
-.UserPage{
+.UserPage {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,14 +9,16 @@
     justify-content: center;
     align-items: center;
     padding: 5vh 0;
-    background:#ffeef3;
-.main{
+    background: #ffeef3;
+
+    .main {
         max-width: 600px;
         width: 90%;
-        background-color:#fff ;
+        background-color: #fff;
         height: 90%;
         box-shadow: 0 0 4px 0 #1b1b1b;
-        .header{
+
+        .header {
             width: 100%;
             display: flex;
             justify-content: center;
@@ -24,23 +26,62 @@
             flex-direction: column;
             gap: 2px;
             height: 30%;
-            background:var(--prime-color);
-            img{
+            background: var(--prime-color);
+
+            img {
                 width: 80px;
                 height: 80px;
             }
-            p{
+
+            p {
                 color: #fff;
             }
         }
     }
-    ul{
-    list-style: none;
-    padding-inline-start: 0;
-    padding: 2%;
-    li{
-        margin: 0;
-        padding: 0;
-    }
+
+    .buttonsContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2%;
+        background-color: #fff;
+        height: 40%;
+
+        button {
+            width: 40%;
+            height: 40%;
+            margin: 2%;
+            padding: 0;
+            color: #ffffff;
+            font-size: var(--l-f);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 3px rgba(0, 0, 0);
+            background: #8BFAFF;
+            background: -moz-linear-gradient(left, #8BFAFF 0%, #FF85F1 100%);
+            background: -webkit-linear-gradient(left, #8BFAFF 0%, #FF85F1 100%);
+            background: linear-gradient(to right, #69f6fd 0%, #FF85F1 100%);
+        }
+
+        button:nth-child(1) {
+      
+        }
+
+        button:nth-child(2) {
+
+        }
+
+        button:nth-child(3) {
+
+        }
+
+        button:nth-child(4) {
+
+        }
     }
 }

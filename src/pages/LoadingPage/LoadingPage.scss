@@ -1,12 +1,12 @@
 :root {
-    --size: 30px
+    --size: 10px
 }
 
 .LoadingPage {
     width: 100%;
     height: 100vh;
     display: flex;
-    padding-top: 28vh;
+    padding-top: 10vh;
     align-items: center;
     position: fixed;
     top: 0;
@@ -15,9 +15,10 @@
 
     .loadingContainer {
         width: 300px;
-        height: 200px;
+        height: 100px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        gap: 5%;
         flex-direction: column;
         align-items: center;
 
@@ -26,22 +27,9 @@
             font-weight: bold;
             font-family: monospace;
             color: #EF4876;
-            animation: l7 5s infinite linear;
-            font-size: 3rem;
+            font-size:var(--xxl-f);
             font-family: valera;
         }
-
-            @keyframes l7 {
-            0%{
-                opacity: 1;
-            }
-            50%{
-                opacity: 0;
-            }
-            100%{
-                opacity: 1;
-            }
-            }
 
             .loaderDotsContainer {
                 display: flex;
@@ -56,7 +44,7 @@
                     height: var(--size);
                     border-radius: 50%;
                     background: var(--prime-color);
-                    animation: loader 1.5s infinite ease-in-out;
+                    animation: loader 4s infinite ease-in-out;
                 }
 
                 div:nth-child(1) {

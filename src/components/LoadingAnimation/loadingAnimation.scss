@@ -1,0 +1,89 @@
+.LoadingAnimation{
+    width: 250px;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    .cart{
+        top: 50px;
+        position: absolute;
+        width: 250px;
+        height: 200px;
+    }
+    .wheel{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        animation: spin 50s ease-out 0s infinite alternate forwards;
+        top: 206px;
+    }
+    .wheel:nth-child(3){
+        left: 168px;
+    
+    }
+    .wheel:nth-child(2){
+        left: 62px;
+    
+    }
+    .items{
+        width: 50px;
+        height: 80px;
+        position: absolute;
+        z-index: -1;
+        top: -100px;
+        animation: fallDown 18s ease-in-out 2s infinite  forwards;
+
+    }
+    .milk{
+        height: 90px;
+        left:60px;
+        animation-delay: 1s;
+    }
+    .bread{
+        animation-delay: 2.5s;
+        left: 100px;
+    }
+    .coca{
+        animation-delay: 3.7s;
+        left: 130px;
+    }
+    .clean{
+        animation-delay: 4.9s;
+        left: 170px;
+        
+    }
+}
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(36000deg);
+    }
+}
+@keyframes fallDown {
+    0%{
+       top: -100px;
+    }
+    10%{
+        top: -100%;
+    }
+    30%{
+        top: 100px;
+
+    }
+    97%{
+        top: 100px;
+        opacity: 1;
+        
+    }
+    99%{
+        top: 100px;
+        opacity: 0;
+        
+    }
+    100%{
+        opacity: 0;
+        top: -100px;
+    }
+}
