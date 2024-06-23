@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { isAuthenticated } from "./webApi";
-import NavBar from "../components/NavBar/navBar";
 import LoadingPage from "../pages/LoadingPage/LoadingPage";
 
 

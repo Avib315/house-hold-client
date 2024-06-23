@@ -3,9 +3,7 @@ import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { CreateNewListPage } from './pages/CreateNewListPage/createNewListPage';
-import { AddNewItemPage } from './pages/AddNewItems/addNewItemPage.jsx';
 import HomePage from './pages/HomePage/homePage';
-import NavBar from './components/NavBar/navBar';
 import ShowListsPage from './pages/ShowListsPage/showListsPage';
 import { UserInfoProvider } from './functions/UserInfoContext.jsx';
 import UserPage from './pages/UserPage/userPage.jsx';
@@ -30,7 +28,6 @@ function App() {
           <Route path='/recipes' element={<ProtectedRout element={<CreateNewListPage />} />} />
           <Route path='/setting' element={<ProtectedRout element={<UserPage />} />} />
           <Route path='setting/edit-items' element={<ProtectedRout element={<EditItems />} />} />
-          <Route path='/new-items' element={<ProtectedRout element={<AddNewItemPage />} />} />
         </Routes>
       </UserInfoProvider>
     </div>

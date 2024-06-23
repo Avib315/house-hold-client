@@ -6,63 +6,181 @@
     top: 0;
     left: 0;
     overflow-y: auto;
-  
+
     .main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      padding: 3px;
-  
-      table {
-        border-collapse: collapse;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
-        max-width: 600px;
-        position: relative;
-  
-        thead {
-          display: table-header-group; /* Keep thead as table header */
+        height: 100%;
+        padding: 3px;
+
+        .addItemsContainer {
+            width: 100%;
+            height: 8vh;
+            max-width: 600px;
+            margin-bottom: 1vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            button.openItemsAddForm {
+                position: absolute;
+                // top: 50%;
+                // left: 50%;
+                width: 180px;
+                height: 100%;
+                max-height: 40px;
+                font-size: var(--s-f);
+                padding: 4px 10px;
+                border-radius: 10px;
+                background: var(--prime-color);
+                border: none;
+                color: #ffffff;
+                box-shadow: 0 0 2px 0 #444444;
+                white-space: nowrap;
+                // transform: translate(-50% ,-50%);
+            }
+
+            button.openItemsAddForm.closeButton {
+                animation: closedButton 0.3s linear 0s 1 alternate forwards;
+            }
+            .addItemsForm{
+                display: flex;
+                justify-content: center;
+                transform: scale(1);
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                gap: 3%;
+                .container{
+                    min-width: 100px;
+                    height: 40px;
+                    width: 30%;
+                }
+            }
+            .containerBtn{
+                min-width: 70px;
+                height: 40px;
+                width: 20%;
+                
+                button{
+                    width: 80%;
+                    height: 100%;   
+                    color: #ffffff;
+                    border-radius: 10px;
+                    border: none;
+                    background:var(--prime-color);
+                }
+            }
+            .closedForm{
+                display: none;
+                transform: scale(1);
+                animation: closeForm 0.3s linear 0s 1 alternate forwards;
+            }
+            .openForm{
+                transform: scale(0);
+                animation: openForm 0.3s linear 0.3s 1 alternate forwards;
+              
+            }
         }
-  
-        .tbody-wrapper {
-          display: block;
-          max-height: 70vh; /* Adjust as needed */
-          overflow-y: auto;
-          width: 100%;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+
+            button {
+                background: none;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                color: #313131;
+            }
+
+
+            thead {
+                display: table-header-group;
+                /* Keep thead as table header */
+            }
+
+            .tbody-wrapper {
+                display: block;
+                max-height: 65vh;
+                /* Adjust as needed */
+                overflow-y: auto;
+                width: 100%;
+            }
+
+            tbody {
+                display: block;
+                width: 100%;
+            }
+
+            tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            td,
+            th {
+                font-size: var(--m-f);
+                width: 32%;
+                border: 1px solid #ddd;
+                padding: 8px 2px;
+                text-align: center;
+            }
+
+            td:nth-child(3),
+            th:nth-child(3) {
+                width: 15%;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #f05f77;
+                color: white;
+            }
         }
-  
-        tbody {
-          display: block;
-          width: 100%;
-        }
-  
-        tr {
-          display: table;
-          width: 100%;
-          table-layout: fixed; /* Ensure rows and cells align properly */
-        }
-  
-        td,
-        th {
-          font-size: var(--m-f);
-          width: 32%;
-          border: 1px solid #ddd;
-          padding: 8px 2px;
-          text-align: center;
-        }
-  
-        tr:nth-child(even) {
-          background-color: #f2f2f2;
-        }
-  
-        th {
-          padding-top: 12px;
-          padding-bottom: 12px;
-          background: #f05f77;
-          color: white;
-        }
-      }
     }
-  }
-  
+}
+
+@keyframes closedButton {
+    0% {
+        transform: scale(1);
+    }
+
+    99% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(0);
+        display: none;
+    }
+}
+@keyframes openForm {
+    0% {
+        display: flex;
+        transform: scale(0);
+    }
+
+    99% {
+        display: flex;
+        
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+        display: flex;
+    }
+}

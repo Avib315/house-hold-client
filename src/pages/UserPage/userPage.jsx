@@ -6,6 +6,7 @@ import LoadingPage from '../LoadingPage/LoadingPage.jsx';
 import { FaBook, FaUser, FaShoppingBag, FaUserFriends, FaClipboardList ,  FaArrowLeft} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
+
 export default function UserPage() {
   const [userInfo, setUserInfo] = useState({});
   const [loading, setLoading] = useState(true);
