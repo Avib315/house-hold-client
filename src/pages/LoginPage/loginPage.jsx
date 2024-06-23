@@ -32,7 +32,7 @@ export default function LoginPage() {
     }
     return (
         <div className='LoginPage'>
-            <HeaderTitle title={"התחברות"} />
+            <HeaderTitle title={"התחברות"} isProtected={false}/>
             <form action="" className='form' onSubmit={submitHandler}>
                 <div className='inputContainer'>
                     <Input

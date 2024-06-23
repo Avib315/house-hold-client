@@ -20,7 +20,7 @@ export default function ProtectedRout({ element }) {
         <>
             {!loading ?
                 (isAuth ?
-                    <>  {element}   <NavBar /> </>
+                    <>  {element}  </>
                     : <div>חזרה להתחברות:  </div>) : <LoadingPage/>}
 
         </>)

@@ -25,7 +25,7 @@ export default function RegisterPage() {
   }
   return (
     <div className='RegisterPage'>
-      <HeaderTitle title={"הרשמה"} />
+      <HeaderTitle title={"הרשמה"} isProtected={false} />
       <form className='form' onSubmit={submitHandler}>
         <div className='inputContainer'>
           <Input
