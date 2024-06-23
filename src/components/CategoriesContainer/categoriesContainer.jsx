@@ -16,15 +16,13 @@ export const CategoriesContainer = ({ categorySelected = "", setCategorySelected
     };
     return <div className="CategoriesContainer">
                     {categories.map((e, i) => (
-                        <div className="btnNameContainer" key={`cnp-categories-${i}`}>
+                        <div className={`btnNameContainer ${categorySelected === e._id ? 'selectedCategory' : ''}`} key={`cnp-categories-${i}`}>
                             <button
-                                className={`categoriesBtn categories-${e.categoryIcon} ${categorySelected === e._id ? 'selectedCategory' : ''
-                                    }`}
+                                className={`categoriesBtn categories-${e.categoryIcon} `}
                                 onClick={() => {
                                     selectCategoryHandler(e._id);
                                 }}
                             ></button>
-                            <p>{e.name}</p>
                         </div>
                     ))}
                 </div>
