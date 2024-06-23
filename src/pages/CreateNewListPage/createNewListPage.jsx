@@ -7,21 +7,25 @@ import { useUserInfo } from '../../functions/UserInfoContext';
 import { CategoriesContainer } from '../../components/CategoriesContainer/categoriesContainer';
 import { CiSearch } from "react-icons/ci";
 import { NavLink } from 'react-router-dom';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 export const CreateNewListPage = () => {
     const { userInfo, setUserInfo } = useUserInfo();
     const [categorySelected, setCategorySelected] = useState('');
     const [items, setItems] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+    const [loading, setLoading] = useState(true);
 
     const getItems = async () => {
-        const res = await axiosReq({ method: 'POST', url: 'items/get-items', body: { categoryId: categorySelected } , withCredentials: true }) ;
-        const filteredItems = getDisplayItems(res, userInfo.itemsSelected);
-        setItems(filteredItems);
+        const res = await axiosReq({ method: 'POST', url: 'items/get-items', body: { categoryId: categorySelected }, withCredentials: true });
+        if(res){
+            setLoading(false)
+            const filteredItems = getDisplayItems(res, userInfo.itemsSelected);
+            setItems(filteredItems);
+        }
     };
 
     useEffect(() => {
-    
         getItems();
     }, [categorySelected, userInfo.itemsSelected]);
 
@@ -38,7 +42,8 @@ export const CreateNewListPage = () => {
         }));
     }
 
-    return (
+    return (<>
+    {loading ? <LoadingPage/> : 
         <div className="createNewListPage">
             <HeaderTitle title={'רשימה חדשה'} />
             <div className="main">
@@ -64,10 +69,11 @@ export const CreateNewListPage = () => {
                 </div>
                 <div className='footerDiv'>
 
-                <NavLink to="view-list">  הצג רשימה    </NavLink>
+                    <NavLink to="view-list">  הצג רשימה    </NavLink>
                 </div>
             </div>
 
-        </div>
+        </div>}
+    </>
     );
 };

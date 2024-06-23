@@ -18,7 +18,7 @@ export default function ListViewerPage({ }) {
     getDate();
   }, [])
   const copyTextClickHandler = () => {
-    const copyText = items.map(item => item.displayName).join('\n');
+    const copyText = "-רשימת קניות- \n "+items.map(item => item.displayName).join('\n');
     navigator.clipboard.writeText(copyText);
     setIsCopyString(true)
   }
