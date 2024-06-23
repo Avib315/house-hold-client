@@ -74,18 +74,21 @@
             border-radius: 10px;
             position: relative;
             overflow: hidden;
-            border-color: red;
             .iconContainer{
+                position: absolute;
+                right: 0;
                 color: #ffffff;
                 width: 60px;
                 height: 60px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: red;
                 border-radius: inherit;
                 font-size: 1.3rem;
+                transition: .2s;
+                z-index: 3;
             }
+            
             .iconContainer.user{
                 background-color: #46baff;
             }
@@ -101,16 +104,16 @@
             .iconContainer.recipes  {
                 background-color: #47e6b9;
             }
-          
+            
             p {      
-                width: 70%; 
-                z-index: 2;
+                width: 100%; 
                 color: #222222;
                 margin-block-start: 0;
                 margin-block-end: 0;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                z-index: 1;
             }
 
          
@@ -118,6 +121,10 @@
 
 
     }
+}
+.UserPage a:active .iconContainer {
+    width: 100% !important;
+    z-index: 3;
 }
 @media (min-width: 0px) and (max-width: 450px) {
     .UserPage {
