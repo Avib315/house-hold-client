@@ -34,7 +34,7 @@ export default function UserPage() {
 
   return (
     <>
-      {!loading ?
+      {loading ?
         <div className='UserPage'>
           <div className='main'>
             <div className='header'>

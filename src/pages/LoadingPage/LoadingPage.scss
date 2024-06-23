@@ -1,11 +1,10 @@
 :root {
-    --size: 10px
+    --size: 20px
 }
 
 .LoadingPage {
     width: 100%;
     height: 100vh;
-    background:#ffffff;
     display: flex;
     padding-top: 10vh;
     align-items: center;
@@ -14,6 +13,31 @@
     left: 0;
     z-index: 100;
     flex-direction: column;
+
+    .loadingImage {
+        width: 100%;
+        height: 70vh;
+        margin-top: 33vh;
+        background: url(/src/assets/images/bg-food2.png);
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        z-index: -1;
+        filter: blur(3px);
+    }
+
+    .flex-center {
+        background-color: rgba(255, 255, 255, 0.4);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(2px);
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 55vh;
+    }
 
     .loadingContainer {
         width: 300px;
@@ -29,58 +53,59 @@
             font-weight: bold;
             font-family: monospace;
             color: #EF4876;
-            font-size:var(--xxl-f);
+            font-size: var(--xxl-f);
             font-family: valera;
+            text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;  
         }
 
-            .loaderDotsContainer {
-                display: flex;
-                justify-content: center;
-                align-self: center;
-                gap: 10px;
-                width: 100%;
+        .loaderDotsContainer {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            gap: 10px;
+            width: 100%;
 
-                div {
-                    box-shadow: 0 0 5px 0 #000000;
-                    width: var(--size);
-                    height: var(--size);
-                    border-radius: 50%;
-                    background: var(--prime-color);
-                    animation: loader 4s infinite ease-in-out;
-                }
-
-                div:nth-child(1) {
-                    transform: rotate(100deg);
-                    animation-delay: 0.3s;
-                }
-
-                div:nth-child(2) {
-                    transform: rotate(150deg);
-                    animation-delay: 0.8s;
-                }
-
-                div:nth-child(3) {
-                    transform: rotate(0deg);
-                    animation-delay: 1.3s;
-                }
+            div {
+                box-shadow: 0 0 5px 0 #000000;
+                width: var(--size);
+                height: var(--size);
+                border-radius: 50%;
+                background: var(--prime-color);
+                animation: loader 4s infinite ease-in-out;
             }
 
-        }
+            div:nth-child(1) {
+                transform: rotate(100deg);
+                animation-delay: 0.3s;
+            }
 
+            div:nth-child(2) {
+                transform: rotate(150deg);
+                animation-delay: 0.8s;
+            }
+
+            div:nth-child(3) {
+                transform: rotate(0deg);
+                animation-delay: 1.3s;
+            }
+        }
 
     }
 
-    @keyframes loader {
-        0% {
-            transform: scale(1);
-        }
 
-        50% {
-            transform: scale(0.5);
-        }
+}
 
-        100% {
-            transform: scale(1);
-        }
-
+@keyframes loader {
+    0% {
+        transform: scale(1);
     }
+
+    50% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
