@@ -29,10 +29,16 @@
     justify-content: space-evenly;
     max-width: 600px;
 }
-
-.createNewListPage .inputBtnContainer a {
+.createNewListPage .footerDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 2%;
+}
+.createNewListPage .footerDiv a {
     width: 100px;
     border-radius: 20px;
+    height: 40px;
     background: var(--prime-color);
     color: #ffffff;
     border: none;

@@ -49,7 +49,6 @@ export const CreateNewListPage = () => {
                             <CiSearch />
                         </div>
                     </div>
-                    <NavLink to="view-list">  הצג רשימה    </NavLink>
                 </div>
                 <CategoriesContainer categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
                 <div className="itemContainer">
@@ -62,6 +61,10 @@ export const CreateNewListPage = () => {
                             {e.displayName}
                         </button>
                     ))}
+                </div>
+                <div className='footerDiv'>
+
+                <NavLink to="view-list">  הצג רשימה    </NavLink>
                 </div>
             </div>
 

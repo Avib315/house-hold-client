@@ -37,7 +37,7 @@
     }
     
     .container {
-        padding: 6px 14%;
+        padding: 6px 8%;
         width: 100%;
         min-width: 300px;
         max-width: 700px;
@@ -49,6 +49,11 @@
             flex-wrap: wrap;
             width: 100%;
             list-style-type: none;
+            margin-block-start: 0;   
+             margin-block-end: 0;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 0;
             li{
                 padding: 5px;
                 flex-grow: 3;
