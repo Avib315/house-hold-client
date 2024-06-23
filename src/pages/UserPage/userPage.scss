@@ -55,7 +55,7 @@
         flex-direction: column;
         padding: 1%;
         background-color: #fff;
-        height: 70%;
+        height: 65%;
 
         a {
             background-color:  #f3f3f3;
@@ -129,6 +129,11 @@
 @media (min-width: 0px) and (max-width: 450px) {
     .UserPage {
         justify-content: start;
+        .main{
+            
+            height: 100%;
      }
+     }
+     
     
 }
