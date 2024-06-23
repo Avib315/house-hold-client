@@ -9,6 +9,7 @@ const HomePage = ({ }) => {
             <div className='navContainer'>
             <NavLink to={"/new-list"} className={"navBtn primeBg"}>רשימה חדשה</NavLink>
             <NavLink to={"/lists"} className={"navBtn primeBg"}>רשימות </NavLink>
+            <NavLink to={"/recipes"} className={"navBtn primeBg"}>מתכונים </NavLink>
             </div>
         </div>
     );
