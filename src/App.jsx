@@ -12,6 +12,8 @@ import LoginPage from './pages/LoginPage/loginPage.jsx';
 import RegisterPage from './pages/RegisterPage/registerPage.jsx';
 import ProtectedRout from './functions/ProtectedRout.jsx';
 import EditItems from './pages/EditItems/editItems.jsx';
+import RecipesPage from './pages/RecipesPage/recipesPage.jsx';
+import AddNewRecipe from './pages/AddNewRecipe/addNewRecipe.jsx';
 
 function App() {
   return (
@@ -25,7 +27,8 @@ function App() {
           <Route path='/new-list' element={<ProtectedRout element={<CreateNewListPage />} />} />
           <Route path='/new-list/view-list' element={<ProtectedRout element={<ListViewerPage />} />} />
           <Route path='/lists' element={<ProtectedRout element={<ShowListsPage />} />} />
-          <Route path='/recipes' element={<ProtectedRout element={<CreateNewListPage />} />} />
+          <Route path='/recipes' element={<ProtectedRout element={<RecipesPage />} />} />
+          <Route path='/recipes/addNewRecipe' element={<ProtectedRout element={<AddNewRecipe />} />} />
           <Route path='/setting' element={<ProtectedRout element={<UserPage />} />} />
           <Route path='setting/edit-items' element={<ProtectedRout element={<EditItems />} />} />
         </Routes>

@@ -6,7 +6,6 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    padding-top: 10vh;
     align-items: center;
     position: fixed;
     top: 0;
@@ -16,11 +15,10 @@
 
     .loadingImage {
         width: 100%;
-        height: 70vh;
-        margin-top: 33vh;
-        background: url(/src/assets/images/bg-food2.png);
+        height: 100vh;
+        background: url(/src/assets/images/categories/all.jpg);
         background-position: top;
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         position: absolute;
         z-index: -1;
@@ -30,13 +28,15 @@
     .flex-center {
         background-color: rgba(255, 255, 255, 0.4);
         -webkit-backdrop-filter: blur(5px);
-        backdrop-filter: blur(2px);
+        backdrop-filter: blur(6px);
         font-weight: bold;
         display: flex;
         align-items: center;
         flex-direction: column;
-        width: 100%;
+        width: 92%;
         height: 55vh;
+        margin-top: 20vh;
+        border-radius: 50px;
     }
 
     .loadingContainer {

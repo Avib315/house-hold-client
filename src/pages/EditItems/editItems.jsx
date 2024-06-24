@@ -4,13 +4,12 @@ import { useEffect, useState } from 'react';
 import { axiosReq } from '../../functions/webApi';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import { FaTrash } from "react-icons/fa";
-import { Input } from '../../components/Input/input';
-import Select from '../../components/Select/select';
+import AddNewItem from '../../components/AddNewItem/addNewItem';
 
 export default function EditItems() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [addItems, setAddItems] = useState(false);
+
   const [categories, setCategories] = useState([])
   const [savedData, setSavedData] = useState(false)
   const deleteItem = async (id) => {
@@ -47,56 +46,13 @@ export default function EditItems() {
   useEffect(() => {
     getData()
   }, [savedData]);
-  const submitHandler = async (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target);
-    const formValues = {};
-    formData.forEach((value, key) => {
-      formValues[key] = value;
-    });
-    if (!formValues.categoryId || !formValues.displayName) {
-      alert("יש למלא שם מוצר וקטגוריה")
-      return;
-    }
-
-    const res = await axiosReq({ method: "POST", url: "items/add-item", body: { item: formValues } });
-    if (res) {
-      alert("המוצר נוסף בהצלחה")
-
-      setSavedData(true);
-      setAddItems(false)
-      return
-    }
-    alert("לא בוצעה שמירה")
-  }
-
+  
 
   return (<>
     <div className='EditItems'>
       <HeaderTitle title={"ערוך מוצרים"} />
       <div className='main'>
-        <div className='addItemsContainer'>
-          <div
-            className={`addItemsForm${!addItems ? " closedForm" : " openForm"}`}>
-            <form onSubmit={submitHandler}>
-              <div className='container'>
-                <Input
-                  name="displayName"
-                  placeholder={"שם מוצר"}
-                />
-              </div>
-              <div className='container'>
-                <Select name="categoryId">
-                  {categories?.map(category => <option key={category.name} value={category._id}>{category.name}</option>)}
-                </Select>
-              </div>
-              <div className='containerBtn'>
-                <button type='submit'>שמור</button>
-              </div>
-            </form>
-          </div>
-          <button className={`openItemsAddForm${addItems ? " closeButton" : ""}`} onClick={() => { setAddItems(true) }}> הוסף מוצר חדש</button>
-        </div>
+        <AddNewItem categories={categories}/>
         <table>
           <thead>
             <tr>
