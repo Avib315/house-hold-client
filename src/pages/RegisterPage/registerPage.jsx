@@ -6,12 +6,13 @@ import { useState } from 'react'
 import {Input} from "../../components/Input/input.jsx"
 import SelectAvatar from '../../components/SelectAvatar/selectAvatar.jsx'
 export default function RegisterPage() {
-  const [data, setData] = useState({ fName: '' ,lName:'' , email: '', password: '' })
+  const [data, setData] = useState({ fName: '' ,lName:'' , email: '', password: '' , avatar:"1" })
   const [loading, setLoading] = useState(false)
   const submitHandler = async (e) => {
     e.preventDefault()
     setLoading(true)
     try {
+      console.log(data)
       const res = await axiosReq({
         method: 'POST',
         url: 'user/register',
@@ -24,11 +25,14 @@ export default function RegisterPage() {
       setLoading(false)
     }
   }
+  const setAvatar = (num)=>{
+    setData((perv) => { return {...perv, avatar: String(num)} })
+  }
   return (
     <div className='RegisterPage'>
       <HeaderTitle title={"הרשמה"} isProtected={false} />
       <form className='form' onSubmit={submitHandler}>
-        <SelectAvatar/>
+        <SelectAvatar setAvatar={setAvatar}/>
         <div className='inputContainer'>
           <Input
             required={true}

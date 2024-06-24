@@ -91,3 +91,43 @@ input[type="submit"]:hover,a:hover , button:hover {
   cursor: pointer;
 }
 
+.avatar-1{
+  background-color: #38bdff;
+  background-image: url(../src/assets/images/avatars/avatar-1.png);
+}
+.avatar-2{
+  background-color: #f7c1ff;
+  background-image: url(../src/assets/images/avatars/avatar-2.png);
+}
+.avatar-3{
+  background-color: #ff4646a1;
+  background-image: url(../src/assets/images/avatars/avatar-3.png);
+}
+.avatar-4{
+  background-color: #b4ff8c;
+  background-image: url(../src/assets/images/avatars/avatar-4.png);
+}
+.avatar-5{
+  background-color: #fbffbe;
+  background-image: url(../src/assets/images/avatars/avatar-5.png);
+}
+.avatar-6{
+  background-color: #befff2;
+  background-image: url(../src/assets/images/avatars/avatar-6.png);
+}
+.avatar-7{
+  background-color: #fff6e9;
+  background-image: url(../src/assets/images/avatars/avatar-7.png);
+}
+.avatar-8{
+  background-color: #ffc870;
+  background-image: url(../src/assets/images/avatars/avatar-8.png);
+}
+.avatar-9{
+  background-color: #a9ccff;
+  background-image: url(../src/assets/images/avatars/avatar-9.png);
+}
+.avatar-10{
+  background-color: #f7ff89;
+  background-image: url(../src/assets/images/avatars/avatar-10.png);
+}

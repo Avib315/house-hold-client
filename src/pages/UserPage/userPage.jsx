@@ -39,7 +39,7 @@ export default function UserPage() {
           <div className='main'>
             <div className='header'>
               <button className='back' onClick={handleBack}><FaArrowLeft/></button>
-              <img src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745" alt="userImage" />
+               <div className={'userImage avatar-' + userInfo?.avatar}></div>
               <p>שלום, {userInfo.name} </p>
             </div>
             <div className='buttonsContainer'>
