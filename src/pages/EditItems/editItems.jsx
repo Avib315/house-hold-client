@@ -23,16 +23,14 @@ export default function EditItems() {
     alert("לא בוצעה שמירה")
   }
   const getData = async () => {
-    const res = await axiosReq({ method: "GET", url: "categories/get-categories" })
-    setCategories(res)
-  }
-  const getItems = async () => {
-    const res = await axiosReq({ method: 'POST', url: 'items/get-items', body: { categoryId: null }, withCredentials: true });
+    const resCategories = await axiosReq({ method: "GET", url: "categories/get-categories" })
+    const resItems = await axiosReq({ method: 'POST', url: 'items/get-items', body: { categoryId: null }, withCredentials: true });
+    if (!resItems || !resCategories) { alert("משהו נדפק"); return }
     setLoading(false)
-    setItems(res);
+    setCategories(resCategories)
+    setItems(resItems);
   };
   useEffect(() => {
-    getItems();
     getData()
   }, [savedData]);
   const submitHandler = async (e) => {
@@ -57,6 +55,8 @@ export default function EditItems() {
     }
     alert("לא בוצעה שמירה")
   }
+  console.log(items);
+  console.log(categories);
 
   return (<>
     <div className='EditItems'>
@@ -73,7 +73,7 @@ export default function EditItems() {
                 />
               </div>
               <div className='container'>
-                <Select  name="categoryId">
+                <Select name="categoryId">
                   {categories?.map(category => <option key={category.name} value={category._id}>{category.name}</option>)}
                 </Select>
               </div>

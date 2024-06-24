@@ -50,27 +50,23 @@ export default function UserPage() {
               <NavLink to="edit-items">
                 <div className='iconContainer items'>
                   <FaShoppingBag/>
-                  {/* <span>({userInfo?.items?.length})</span> */}
                 </div>
                 <p>מוצרי קניות </p>
               </NavLink>
               <NavLink to="">
                 <div className='iconContainer lists'>
                   <FaClipboardList/>
-                  {/* <span>({userInfo?.lists?.length})</span> */}
                 </div>
                 <p>רשימות </p>
               </NavLink>
               <NavLink to="">
                 <div className='iconContainer friends'>
                   <FaUserFriends/>
-                  {/* <span>({userInfo?.friends?.length})</span> */}
                 </div>
                 <p>חברים</p>
               </NavLink>
               <NavLink to="">
                 <div className='iconContainer recipes'>
-                  {/* <span>({userInfo?.recipes?.length})</span> */}
                   <FaBook/>
                 </div>
                 <p>מתכונים </p>
