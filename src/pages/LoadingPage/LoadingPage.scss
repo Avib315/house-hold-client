@@ -22,7 +22,7 @@
         background-repeat: no-repeat;
         position: absolute;
         z-index: -1;
-        filter: blur(3px);
+        filter: blur(5px);
     }
 
     .flex-center {
@@ -37,6 +37,7 @@
         height: 55vh;
         margin-top: 20vh;
         border-radius: 50px;
+        max-width: 400px;
     }
 
     .loadingContainer {

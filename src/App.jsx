@@ -14,6 +14,7 @@ import ProtectedRout from './functions/ProtectedRout.jsx';
 import EditItems from './pages/EditItems/editItems.jsx';
 import RecipesPage from './pages/RecipesPage/recipesPage.jsx';
 import AddNewRecipe from './pages/AddNewRecipe/addNewRecipe.jsx';
+import LoadingPage from './pages/LoadingPage/LoadingPage.jsx';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path='/recipes/addNewRecipe' element={<ProtectedRout element={<AddNewRecipe />} />} />
           <Route path='/setting' element={<ProtectedRout element={<UserPage />} />} />
           <Route path='setting/edit-items' element={<ProtectedRout element={<EditItems />} />} />
+          <Route path='setting/loading' element={<ProtectedRout element={<LoadingPage />} />} />
         </Routes>
       </UserInfoProvider>
     </div>

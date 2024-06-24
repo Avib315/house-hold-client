@@ -19,7 +19,7 @@ export default function EditItems() {
       setSavedData(true);
       return
     }
-    alert("לא בוצעה שמירה")
+    alert("משהו נדפק לא בוצעה שמירה")
   }
   const getData = async () => {
     const resCategories = await axiosReq({ method: "GET", url: "categories/get-categories" });

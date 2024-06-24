@@ -65,7 +65,7 @@ export default function UserPage() {
                 </div>
                 <p>חברים</p>
               </NavLink>
-              <NavLink to="">
+              <NavLink to="loading">
                 <div className='iconContainer recipes'>
                   <FaBook/>
                 </div>

@@ -30,24 +30,24 @@
         position: absolute;
         z-index: -1;
         top: -100px;
-        animation: fallDown 18s ease-in-out 2s infinite  forwards;
+        animation: fallDown 10s ease-in-out 2s infinite  forwards;
 
     }
     .milk{
         height: 90px;
         left:60px;
-        animation-delay: 1s;
+        animation-delay: 0s;
     }
     .bread{
-        animation-delay: 2.5s;
+        animation-delay: 1.2s;
         left: 100px;
     }
     .coca{
-        animation-delay: 3.7s;
+        animation-delay: 2.3s;
         left: 130px;
     }
     .clean{
-        animation-delay: 4.9s;
+        animation-delay: 3.4s;
         left: 170px;
         
     }
