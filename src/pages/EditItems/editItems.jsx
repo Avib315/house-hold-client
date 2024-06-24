@@ -12,7 +12,6 @@ export default function EditItems() {
   const [loading, setLoading] = useState(true);
   const [addItems, setAddItems] = useState(false);
   const [categories, setCategories] = useState([])
-  const [newData, setNewData] = useState({});
   const [savedData, setSavedData] = useState(false)
   const deleteItem = async (id) => {
     const res = await axiosReq({ method: "POST", url: "items/delete-item", body: { itemId: id } });
@@ -36,25 +35,29 @@ export default function EditItems() {
     getItems();
     getData()
   }, [savedData]);
-  const saveNewItemData = async () => {
-    if (!newData?.categoryId || newData?.displayName) {
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target);
+    const formValues = {};
+    formData.forEach((value, key) => {
+      formValues[key] = value;
+    });
+    if (!formValues.categoryId || !formValues.displayName) {
       alert("יש למלא שם מוצר וקטגוריה")
       return;
     }
-  
-    const res = await axiosReq({ method: "POST", url: "items/add-item", body: { item: newData } });
-    console.log("back");
+
+    const res = await axiosReq({ method: "POST", url: "items/add-item", body: { item: formValues } });
     if (res) {
       alert("המוצר נוסף בהצלחה")
-      setNewData({
-        displayName: "",
-        categoryId: "",
-      })
+
       setSavedData(true);
+      setAddItems(false)
       return
     }
     alert("לא בוצעה שמירה")
   }
+
   return (<>
     <div className='EditItems'>
       <HeaderTitle title={"ערוך מוצרים"} />
@@ -62,25 +65,22 @@ export default function EditItems() {
         <div className='addItemsContainer'>
           <div
             className={`addItemsForm${!addItems ? " closedForm" : " openForm"}`}>
-            <div className='container'>
-              <Input
-                placeholder={"שם מוצר"}
-                value={newData.displayName}
-                onChange={(e) => {
-                  setNewData({ ...newData, displayName: e.target.value });
-                }} />
-            </div>
-            <div className='container'>
-              <Select onChange={(e) => {
-                const val = e.target.value;
-                setNewData({ ...newData, categoryId: val });
-              }}>
-                {categories?.map(category => <option key={category.name} value={category._id}>{category.name}</option>)}
-              </Select>
-            </div>
-            <div className='containerBtn'>
-              <button onClick={saveNewItemData}>שמור</button>
-            </div>
+            <form onSubmit={submitHandler}>
+              <div className='container'>
+                <Input
+                  name="displayName"
+                  placeholder={"שם מוצר"}
+                />
+              </div>
+              <div className='container'>
+                <Select  name="categoryId">
+                  {categories?.map(category => <option key={category.name} value={category._id}>{category.name}</option>)}
+                </Select>
+              </div>
+              <div className='containerBtn'>
+                <button type='submit'>שמור</button>
+              </div>
+            </form>
           </div>
           <button className={`openItemsAddForm${addItems ? " closeButton" : ""}`} onClick={() => { setAddItems(true) }}> הוסף מוצר חדש</button>
         </div>
@@ -97,7 +97,7 @@ export default function EditItems() {
               <tr key={e._id}>
                 <td>{e.displayName}</td>
                 <td>{e.name}</td>
-                <td><button className='button trash' onClick={()=>{deleteItem(e._id)}}> <FaTrash /> </button></td>
+                <td><button className='button trash' onClick={() => { deleteItem(e._id) }}> <FaTrash /> </button></td>
               </tr>
             ))}
           </tbody>

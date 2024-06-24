@@ -24,7 +24,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-
+            
             button.openItemsAddForm {
                 position: absolute;
                 // top: 50%;
@@ -42,7 +42,7 @@
                 white-space: nowrap;
                 // transform: translate(-50% ,-50%);
             }
-
+            
             button.openItemsAddForm.closeButton {
                 animation: closedButton 0.3s linear 0s 1 alternate forwards;
             }
@@ -54,6 +54,9 @@
                 height: 100%;
                 align-items: center;
                 gap: 3%;
+                form{
+                    display: contents;
+                }
                 .container{
                     min-width: 100px;
                     height: 40px;

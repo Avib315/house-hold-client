@@ -9,16 +9,17 @@ export default function LoginPage() {
     const navigate = useNavigate()
     const { setUserInfo } = useUserInfo()
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState({
-        email: '',
-        password: ''
-    })
+
     const submitHandler = async (e) => {
         e.preventDefault()
+        const formData = new FormData(e.target);
+        const formValues = {};
+        formData.forEach((value, key) => {
+            formValues[key] = value;
+        });
         if (loading) return;
         setLoading(true)
-
-        const res = await axiosReq({ method: 'POST', url: 'user/login', body: data })
+        const res = await axiosReq({ method: 'POST', url: 'user/login', body: formValues })
         setLoading(false)
 
         if (!res.login || !res) {
@@ -32,14 +33,13 @@ export default function LoginPage() {
     }
     return (
         <div className='LoginPage'>
-            <HeaderTitle title={"התחברות"} isProtected={false}/>
+            <HeaderTitle title={"התחברות"} isProtected={false} />
             <form action="" className='form' onSubmit={submitHandler}>
                 <div className='inputContainer'>
                     <Input
                         required={true}
                         type="email"
-                        onInput={(e) => setData((perv) => { return { ...perv, email: e.target.value } })}
-                        value={data.value}
+                        name="email"
                         placeholder="אימייל"
                     />
                 </div>
@@ -47,8 +47,7 @@ export default function LoginPage() {
                     <Input
                         required={true}
                         type="password"
-                        onInput={(e) => setData((perv) => { return { ...perv, password: e.target.value } })}
-                        value={data.value}
+                        name="password"
                         placeholder="סיסמה"
                     />
                 </div>
