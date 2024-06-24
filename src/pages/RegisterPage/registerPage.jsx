@@ -4,6 +4,7 @@ import {axiosReq} from '../../functions/webApi'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import {Input} from "../../components/Input/input.jsx"
+import SelectAvatar from '../../components/SelectAvatar/selectAvatar.jsx'
 export default function RegisterPage() {
   const [data, setData] = useState({ fName: '' ,lName:'' , email: '', password: '' })
   const [loading, setLoading] = useState(false)
@@ -27,6 +28,7 @@ export default function RegisterPage() {
     <div className='RegisterPage'>
       <HeaderTitle title={"הרשמה"} isProtected={false} />
       <form className='form' onSubmit={submitHandler}>
+        <SelectAvatar/>
         <div className='inputContainer'>
           <Input
             required={true}

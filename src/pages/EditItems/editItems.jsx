@@ -23,13 +23,27 @@ export default function EditItems() {
     alert("לא בוצעה שמירה")
   }
   const getData = async () => {
-    const resCategories = await axiosReq({ method: "GET", url: "categories/get-categories" })
+    const resCategories = await axiosReq({ method: "GET", url: "categories/get-categories" });
     const resItems = await axiosReq({ method: 'POST', url: 'items/get-items', body: { categoryId: null }, withCredentials: true });
-    if (!resItems || !resCategories) { alert("משהו נדפק"); return }
-    setLoading(false)
-    setCategories(resCategories)
+
+    if (!resItems || !resCategories) {
+      alert("משהו נדפק");
+      return;
+    }
+    const categoryMap = {};
+    resCategories.forEach(category => {
+      categoryMap[category._id] = category.name;
+    });
+    resItems.forEach(item => {
+      item.categoryName = categoryMap[item.categoryId] || 'Unknown';
+    });
+    setLoading(false);
+    setCategories(resCategories);
     setItems(resItems);
+
   };
+
+
   useEffect(() => {
     getData()
   }, [savedData]);
@@ -55,8 +69,7 @@ export default function EditItems() {
     }
     alert("לא בוצעה שמירה")
   }
-  console.log(items);
-  console.log(categories);
+
 
   return (<>
     <div className='EditItems'>
@@ -96,7 +109,7 @@ export default function EditItems() {
             {items?.map(e => (
               <tr key={e._id}>
                 <td>{e.displayName}</td>
-                <td>{e.name}</td>
+                <td>{e.categoryName}</td>
                 <td><button className='button trash' onClick={() => { deleteItem(e._id) }}> <FaTrash /> </button></td>
               </tr>
             ))}
